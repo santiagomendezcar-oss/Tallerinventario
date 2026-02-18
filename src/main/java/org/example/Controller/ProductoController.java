@@ -1,6 +1,5 @@
 package org.example.Controller;
 
-import org.example.Model.EstadoPedido;
 import org.example.Model.Producto;
 import org.example.Service.ProductoService;
 import org.example.View.ProductoView;
@@ -15,32 +14,28 @@ public class ProductoController {
         this.view = view;
     }
 
-    public Producto registrarProducto(String nombre, double precio, int cantidad) {
+    public void registrar(String nombre, double precio, int cantidad) {
         Producto producto = service.registrar(nombre, precio, cantidad);
-        view.mostrarMensaje("Producto Registrado");
-        return producto;
-    }
-
-    public void mostrarProducto(Producto producto) {
+        view.mostrarMensaje("Producto registrado con ID: " + producto.getId());
         view.mostrarProducto(producto);
     }
 
-    public void mostrarTodos() {
+    public void listar() {
         view.mostrarProductos(service.listar());
     }
 
-    public void modificarProducto(Producto producto, double precio, int cantidad) {
-        service.modificar(producto, precio, cantidad);
-        view.mostrarMensaje("Producto Modificado");
+    public void buscar(long id) {
+        Producto producto = service.buscar(id);
+        view.mostrarProducto(producto);
     }
 
-    public void cambiarEstado(Producto producto, EstadoPedido estado) {
-        service.cambiarEstado(producto, estado);
-        view.mostrarMensaje("Estado Cambiado");
+    public void modificar(long id, double precio, int cantidad) {
+        service.modificar(id, precio, cantidad);
+        view.mostrarMensaje("Producto actualizado");
     }
 
-    public void eliminarProducto(Producto producto) {
-        service.eliminar(producto);
+    public void eliminar(long id) {
+        service.eliminar(id);
         view.mostrarMensaje("Producto eliminado");
     }
 }

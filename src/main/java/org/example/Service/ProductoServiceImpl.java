@@ -1,6 +1,5 @@
 package org.example.Service;
 
-import org.example.Model.EstadoPedido;
 import org.example.Model.Producto;
 
 import java.util.ArrayList;
@@ -9,7 +8,7 @@ import java.util.List;
 public class ProductoServiceImpl implements ProductoService {
 
     private List<Producto> productos = new ArrayList<>();
-    private Long contadorId = 1L;
+    private long contadorId = 1;
 
     @Override
     public Producto registrar(String nombre, double precio, int cantidad) {
@@ -22,17 +21,28 @@ public class ProductoServiceImpl implements ProductoService {
     public List<Producto> listar() {
         return productos;
     }
+
     @Override
-    public void modificar(Producto producto, double precio, int cantidad) {
-        producto.setPrecio(precio);
-        producto.setCantidad(cantidad);
+    public Producto buscar(long id) {
+        for (Producto p : productos) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
     }
+
     @Override
-    public void cambiarEstado(Producto producto, EstadoPedido estado) {
-        producto.setEstado(estado);
+    public void modificar(long id, double precio, int cantidad) {
+        Producto producto = buscar(id);
+        if (producto != null) {
+            producto.setPrecio(precio);
+            producto.setCantidad(cantidad);
+        }
     }
+
     @Override
-    public void eliminar(Producto producto) {
-        productos.remove(producto);
+    public void eliminar(long id) {
+        productos.removeIf(p -> p.getId() == id);
     }
 }

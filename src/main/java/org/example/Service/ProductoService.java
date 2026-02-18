@@ -1,7 +1,7 @@
 package org.example.Service;
 
-import org.example.Model.EstadoPedido;
 import org.example.Model.Producto;
+
 import java.util.List;
 
 public interface ProductoService {
@@ -10,9 +10,9 @@ public interface ProductoService {
 
     List<Producto> listar();
 
-    void modificar(Producto producto, double precio, int cantidad);
+    Producto buscar(long id);
 
-    void cambiarEstado(Producto producto, EstadoPedido estado);
+    void modificar(long id, double precio, int cantidad);
 
-    void eliminar(Producto producto);
+    void eliminar(long id);
 }

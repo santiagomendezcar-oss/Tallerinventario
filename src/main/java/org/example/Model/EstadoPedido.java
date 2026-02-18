@@ -6,3 +6,4 @@ public enum EstadoPedido {
     ACTIVO,
     DESCONTINUADO
 }
+

@@ -1,12 +1,17 @@
 package org.example.View;
 
 import org.example.Model.Producto;
+
 import java.util.List;
 
 public class ProductoView {
 
     public void mostrarProducto(Producto producto) {
-        System.out.println(producto);
+        if (producto != null) {
+            System.out.println(producto);
+        } else {
+            System.out.println("Producto no encontrado");
+        }
     }
 
     public void mostrarProductos(List<Producto> productos) {
