@@ -15,21 +15,21 @@ public class Main {
         ProductoView view = new ProductoView();
         ProductoController controller = new ProductoController(service, view);
 
-        // POST
+        // post
         Producto p1 = controller.registrarProducto("borrador", 2000, 20);
         Producto p2 = controller.registrarProducto("Blog de hojas", 5000, 15);
 
-        // GET
+        // get
         controller.mostrarTodos();
-        // PUT
+        // put
         controller.modificarProducto(p1, 3000, 10);
-        // PUT
+        // put
         controller.cambiarEstado(p1, EstadoPedido.ACTIVO);
-        // GET
+        // get
         controller.mostrarProducto(p1);
-        // DELETE
+        // delete
         controller.eliminarProducto(p2);
-        // GET
+        // get
         controller.mostrarTodos();
     }
 }

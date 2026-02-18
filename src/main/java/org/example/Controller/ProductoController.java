@@ -17,7 +17,7 @@ public class ProductoController {
 
     public Producto registrarProducto(String nombre, double precio, int cantidad) {
         Producto producto = service.registrar(nombre, precio, cantidad);
-        view.mostrarMensaje("PRODUCTO REGISTRADO");
+        view.mostrarMensaje("Producto Registrado");
         return producto;
     }
 

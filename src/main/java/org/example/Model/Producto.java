@@ -1,13 +1,13 @@
 package org.example.Model;
 
 public class Producto {
-
+//atributos del producto
     private Long id;
     private String nombre;
     private double precio;
     private int cantidad;
     private EstadoPedido estado;
-
+//constructor
     public Producto(Long id, String nombre, double precio, int cantidad) {
         this.id = id;
         this.nombre = nombre;
